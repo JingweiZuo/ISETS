@@ -1,0 +1,125 @@
+<html>
+<head>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <title>Website</title>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 0.8em;
+}
+h1{
+    font-weight: normal;
+    font-size: 2.5em;
+}
+div{
+    text-align: left;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#main {
+    width: 800px;
+    height: 300px;
+
+    display:flex;
+    display: -webkit-flex;
+}
+</style>
+
+
+</head>
+
+<body>
+    <h1>ISETS: Incremental Shapelet Extraction from Streaming Time Series</h1>
+    <div>
+
+    </div>
+    <div id="firstRow">
+        <div id="leftbox" style="float:left">
+                <div style="float:left">
+                    <br/>
+                    <form method="post" enctype="multipart/form-data">
+                        <input id="fileselect" name = "file", value="Choose Stream Source" type="file">
+                        <br/><br/>
+                        <input value="extract" type="submit" >
+                    </form>
+                    <form>
+                        <p>Select TS class </p>
+                        <select name="cars">
+                        <option value="class 1" selected="selected">class 1</option>
+                        <option value="class 2">class 2</option>
+                        <option value="class 3">class 3</option>
+                        <option value="class 4">class 4</option>
+                        </select>
+                    </form>
+                </div>
+                <div>
+                    <p>Window Size</p>
+                    <div class="slidecontainer" >
+                        <input type="range" min="1" max="100" value="50" class="slider" id="window_size">
+                    </div>
+                    <p>Forgetting Degree</p>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="forget_degree">
+                    </div>
+                </div>
+            <div>
+            {% for part in pl_dataset %}
+                {{part | safe}}
+            {% endfor %}
+            </div>
+        </div>
+        <div id="rightbox" style="float:right;">
+            <h2>Concept Drift Detection</h2>
+            <br />
+            <p >
+                <input type="checkbox" name="colors" value="blue" /> Page-Linkey Test <br /> <br />
+                <input type="checkbox" name="colors" value="yellow" /> Average Loss Test <br /> <br />
+            </p>
+            {% for part in pl_conceptDrift %}
+                {{part | safe}}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="Bottombox" style="position: absolute; top: 550px;">
+        <h2>Shapelet Ranking Update in Real-Time</h2>
+        {{bokS | safe}}
+    </div>
+  </body>
+</html>
+

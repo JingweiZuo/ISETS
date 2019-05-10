@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Bokeh includes-->
+      <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+  </head>
+  <body>
+    <div>
+        <h1>{{title}}</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input id="fileselect" name = "file", value="file" type="file">
+            <input value="extract" type="submit" >
+        </form>
+        {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
