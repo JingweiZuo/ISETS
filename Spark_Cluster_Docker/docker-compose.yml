@@ -1,0 +1,110 @@
+version: '2' 
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:1.1.0-hadoop2.8-java8
+    container_name: namenode
+    volumes:
+      - ./data/namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop.env
+    ports:
+      - 50070:50070
+  datanode:
+    image: bde2020/hadoop-datanode:1.1.0-hadoop2.8-java8
+    depends_on: 
+      - namenode
+    volumes:
+      - ./data/datanode:/hadoop/dfs/data
+    env_file:
+      - ./hadoop.env
+    ports:
+      - 50075:50075
+  spark-master:
+    image: jingweizuo/pyspark-master
+    container_name: spark-master
+    ports:
+      - 8080:8080
+      - 7077:7077
+    env_file:
+      - ./hadoop.env
+  spark-worker1:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker1
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8081:8081
+    env_file:
+      - ./hadoop.env
+  spark-worker2:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker2
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8082:8081
+    env_file:
+      - ./hadoop.env
+  spark-worker3:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker3
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8083:8081
+    env_file:
+      - ./hadoop.env
+  spark-worker4:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker4
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8084:8081
+    env_file:
+      - ./hadoop.env
+  spark-worker5:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker5
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8085:8081
+    env_file:
+      - ./hadoop.env
+  spark-worker6:
+    image: jingweizuo/pyspark-worker
+    container_name: spark-worker6
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - 8086:8081
+    env_file:
+      - ./hadoop.env
+  spark-notebook:
+    image: bde2020/spark-notebook:2.1.0-hadoop2.8-hive
+    container_name: spark-notebook
+    env_file:
+      - ./hadoop.env
+    ports:
+      - 9001:9001
+  hue:
+    image: bde2020/hdfs-filebrowser:3.11
+    ports:
+      - 8088:8088
+    environment:
+      - NAMENODE_HOST=namenode
