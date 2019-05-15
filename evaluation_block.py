@@ -56,13 +56,15 @@ class driftDetection(object):
             drift = True
         else:
             drift = False
-        print("PH is: " + str(PH))
+        '''print("PH is: " + str(PH))
         print("loss_batch is: " + str(loss_batch))
         print("self.avg_loss is: " + str(self.avg_loss))
-        print("self.cum_loss is: " + str(self.cum_loss))
+        print("self.cum_loss is: " + str(self.cum_loss))'''
         return drift, loss_batch, self.cum_loss, PH, self.avg_loss
 
     def stream_window(self, dataset, window_size):
+        window_size = int(window_size)
+        print(window_size)
         w = dataset[self.t_stamp:self.t_stamp+window_size]
         self.t_stamp += window_size
         return w

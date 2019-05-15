@@ -41,7 +41,7 @@ def global_structure(k, data_directory, m_ratio, stack_ratio, window_size):
         loss_set = [driftDetection.t_stamp, loss_batch, cum_loss, PH, avg_loss, nbr_drift]
         loss_pd = pd.DataFrame([loss_set],
                                    columns=['t_stamp', 'loss_batch', 'cum_loss', 'PH', 'avg_loss', 'nbr_drift'])
-        output_loss = output_loss.append(loss_pd)
+        output_loss.append(loss_pd)
 
         print("Drift is " + str(drift))
         if drift == True:
@@ -50,7 +50,7 @@ def global_structure(k, data_directory, m_ratio, stack_ratio, window_size):
             for shap in shapList:
                 shap_set = [driftDetection.t_stamp, shap.name, shap.Class, str(shap.subseq), shap.normal_distance]
                 shap_pd = pd.DataFrame([shap_set], columns=['t_stamp', 'shap.name', 'shap.Class', 'shap.subseq', 'shap.score'])
-                output_shapelet = output_shapelet.append(shap_pd)
+                output_shapelet.append(shap_pd)
     output_loss.to_csv("output_loss2.csv", index=False)
     output_shapelet.to_csv("output_shapelet2.csv", index=False)
 

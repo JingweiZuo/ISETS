@@ -14,11 +14,13 @@ def discm_profile(TS_set, MP_set, m):
     # mp_dict_same: [mp1, mp2, ...], Array[Array[]]
     # mp_all: {ts_target.name1:mp1, ts_target.name2:mp2, ...}, dict(ts_targe.name:Array[])
     # dp_all: {ts_target.name1:{index1:dp1, index2:dp2, ...}, ts_target.name2:{...}, ...}, dict(ts_target.name: dict(index:Array[]) )
+    print("TS_set length is: " + str(len(TS_set)))
     for idx_s, ts_source in enumerate(TS_set):
         for idx_t, ts_target in enumerate(TS_set):
             if idx_s == idx_t:
                 continue
-            #print("idx_s:idx_t is " + str(idx_s) + ":" + str(idx_t))
+            print("idx_s:idx_t is " + str(idx_s) + ":" + str(idx_t))
+            print("MP_set shape is: " + str(MP_set.shape))
             if ts_source.class_timeseries == ts_target.class_timeseries:
                 mp_sameClass = MP_set[idx_s][idx_t]
                 mp_dict_same.append(mp_sameClass)
