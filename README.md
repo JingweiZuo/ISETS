@@ -6,4 +6,4 @@ This web application is intended to provide users an intuitive understanding abo
 
 ## The tuturial video can be found here -> [ISETS Tutorial](https://drive.google.com/open?id=1IIHi0nu89ZNpZWxeUAsuX7MzyquoJZ_o)
 
-## An advanced version can be found in here https://github.com/JingweiZuo/TSStreamMining
+## An advanced version can be found in here -> [Adaptive features in TS Stream]( https://github.com/JingweiZuo/TSStreamMining)
