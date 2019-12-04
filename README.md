@@ -5,7 +5,7 @@
 
 This web application is intended to provide users an intuitive understanding about the feature extraction process in a combined context of **Time Series** and **Data Streams**. With ISETS, users can monitor the occurence of Concept Drift and the Shapelet Ranking at different Time Points.
 
-###[Project Page: Incremental and Adaptive Feature Exploration over Time Series Stream](https://github.com/JingweiZuo/TSStreamMining)
+### [Project Page: Incremental and Adaptive Feature Exploration over Time Series Stream](https://github.com/JingweiZuo/TSStreamMining)
 
 ### Demo 1 -> [ISETS Tutorial](https://drive.google.com/file/d/1IIHi0nu89ZNpZWxeUAsuX7MzyquoJZ_o/view?usp=sharing)
 
