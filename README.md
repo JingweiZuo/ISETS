@@ -32,3 +32,19 @@ This web application is intended to provide users an intuitive understanding abo
 - **evaluation_block.py**: the loss computation and the Concept Drift detection on TS Stream
 - **adaptive_features/adaptive_features.py**: Concept Drift detection and adaptive feature extraction
 - **ISMAP/ISAMP.py**: incremental Shapelet extraction on MAtrix Profile
+
+
+### Citation
+
+If you find this repository useful in your research, please consider citing the following paper:
+
+```script
+@inproceedings{zuo2019isets,
+  title={ISETS: Incremental Shapelet Extraction from Time Series Stream},
+  author={Zuo, Jingwei and Zeitouni, Karine and Taher, Yehia},
+  booktitle={Joint European Conference on Machine Learning and Knowledge Discovery in Databases},
+  pages={790--793},
+  year={2019},
+  organization={Springer}
+}
+```
